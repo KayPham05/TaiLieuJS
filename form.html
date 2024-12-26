@@ -84,24 +84,39 @@
     <script>
         document.querySelector("form").addEventListener("submit", function (event) {
             event.preventDefault(); // Ngăn chặn hành vi gửi form mặc định
+
+            // lay toan bộ giá trịtrị
+            const formData = new FormData(event.target); // Lấy dữ liệu form
+            const formValues = Object.fromEntries(formData.entries()); // Chuyển sang object
     
-            //lay toan bộ giá trịtrị
-            // const formData = new FormData(event.target); // Lấy dữ liệu form
-            // const formValues = Object.fromEntries(formData.entries()); // Chuyển sang object
+            console.log("Dữ liệu form:");
+            console.log(formValues);
     
-            // console.log("Dữ liệu form:");
-            // console.log(formValues);
-    
-            // // Nếu cần log từng giá trị riêng biệt
-            // for (const [key, value] of formData.entries()) {
-            //     console.log(`${key}: ${value}`);
-            // }
+            // Nếu cần log từng giá trị riêng biệt
+            for (const [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
 
             //lấy giá trị riêng biệtbiệt
-            const inputPassword = document.getElementById('confirm-password').value;
-            console.log("Xác nhận Mật khẩu là", inputPassword);
-            alert("Xác nhận Mật khẩu là",inputPassword);
+            // const inputPassword = document.getElementById('confirm-password').value;
+            // console.log("Xác nhận Mật khẩu là", inputPassword);
+            // alert("Xác nhận Mật khẩu là",inputPassword);
+
+            // const Sdt = document.getElementById('mobile').value;
+            //         if(!/^(0|\+84)[3|5|7|8|9][0-9]{8}$/.test(Sdt)){
+            //             return alert("Nhap sai sdt")
+            //         }
+            const tenTruyCap = document.getElementById('username').value;
+                    if(tenTruyCap.length > 20){
+                        return alert("Ten khong duoc qua 20 ky tu")
+                    }
+
+        function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }        
         });
     </script>
+
 </body> 
 </html>
